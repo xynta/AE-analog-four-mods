@@ -44,10 +44,14 @@ With KEY SCALE anything but OFF, on that track:
 - **NOTE encoder on the TRIG page** - the track's note, and the note of any trigs
   you hold: each click moves to the next in-scale note up or down. A note already
   out of the scale moves to the next in-scale note in the direction you turn.
-- **Transposition** keeps following the key: the new scales transpose like MAJ.
+- **Playback**: the sequencer plays the notes as they are stored. MAJ and MIN keep
+  stock's behaviour: stock pulls every sequenced note into the MAJ or MIN scale of
+  KEY NOTE, and a transposed track stays in that scale. The other 33 scales play
+  the stored notes as they are (what you recorded in the scale stays in it) and
+  transpose chromatically, the whole line moving by semitones.
 
-MAJ and MIN restrict notes too (on stock they only steer transposition), so a
-pattern that used MAJ or MIN on stock now has its notes snapped as you play. A
+MAJ and MIN restrict notes too (on stock they only steer playback and transposition),
+so a pattern that used MAJ or MIN on stock now has its notes snapped as you play. A
 pattern saved with one of the new scales and opened on stock 1.56 reads KEY SCALE
 OFF.
 
@@ -130,6 +134,11 @@ With **SLD** on (or on every synth track, in a slide build without the DIST page
   envelope retrigger - at the sound's slide time (SLI). No LEN tweaking needed.
 - A slide trig with no other trig on the track does nothing.
 - Notes already holding a long LEN keep it unless they carry a slide trig.
+
+In a poly kit (KIT > POLY CONFIG with the track's voice in the pool) the tied note
+stays on the voice that is holding the note before it and glides there (0013). Without
+0013 it is booked on another voice, which never opens, and the note is silent; stock
+1.56 does the same to its own legato slides in poly.
 
 With SLD off the track has the stock A4 slide ("slide to": the slide trig goes on
 the note you glide *into*, and the notes must overlap for it to be legato). A

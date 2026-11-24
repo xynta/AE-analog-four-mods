@@ -77,6 +77,7 @@ or stops with an error, don't flash that file.
 | `0010-wave-osc` | 0006, 0007, 0008 | the digital wave / chord oscillator on the NOISE page |
 | `0011-rand-track` | - | random track (track key + YES, LEFT undoes); uses 0001's KEY SCALE if present |
 | `0012-res-limit` | 0010 | RESONANCE LIMIT in SOUND SETUP (it shares 0010's word in the sound) |
+| `0013-poly-legato` | - | a legato note in a poly kit stays on its track's voice and glides (fixes 0002 and stock slides in poly) |
 
 Rules of thumb:
 

@@ -116,9 +116,12 @@ public class ApplySymbols extends GhidraScript {
         name(0x400fa76cL, "engine_set_param_body", false);
         name(0x400fb56aL, "audio_isr", true);
         name(0x400fb572L, "audio_isr_body", false);
+        name(0x400fc57eL, "voice_flags_resume", false);
         name(0x400fdc80L, "ext_vca_resume", false);
         name(0x400fdee0L, "audio_isr_exit", false);
         name(0x400fdee6L, "audio_isr_exit_resume", false);
+        name(0x400ff34cL, "alloc_mode_resume", false);
+        name(0x400ff450L, "alloc_reassign", false);
         name(0x40129ad0L, "functor_dtor", true);
         name(0x40129b16L, "str_dtor", true);
         name(0x4012e890L, "project_singleton", true);
@@ -134,8 +137,11 @@ public class ApplySymbols extends GhidraScript {
         name(0x401ede78L, "scale_long_names", false);
         name(0x401edf08L, "scale_short_names", false);
         name(0x415c00b0L, "block_counter", false);
+        name(0x415c0ab4L, "poly_voice_table", false);
         name(0x415c9cb8L, "icon_set", false);
         name(0x415cba28L, "project_ptr", false);
-        println("applied 119 symbols");
+        name(0x425d2fe4L, "track_events", false);
+        name(0x80003d2cL, "poly_mode", false);
+        println("applied 125 symbols");
     }
 }

@@ -886,22 +886,12 @@ size    = 2
 expect  = "7402"
 replace = "7423"
 
-# key_offset (transposition): values 3..35 take the MAJ arm (12 - key) instead of 0.
-# Stock: v == 1 -> MAJ, v == 2 -> MIN, else 0. Patched: 1 - v > 0 (v <= 0) -> 0,
-# then 2 - v != 0 -> MAJ, so 2 alone falls through to MIN.
-[[patch]]
-owner   = "0001-scale-lock"
-addr    = 0x40077a4e
-size    = 2
-expect  = "6714"
-replace = "6e20"
-
-[[patch]]
-owner   = "0001-scale-lock"
-addr    = 0x40077a56
-size    = 2
-expect  = "6618"
-replace = "660c"
+# key_offset (0x40077a12) is left stock (xynta, 2026-11-22): v == 1 -> MAJ, v == 2 -> MIN, else 0.
+# It is the playback quantizer's only input, not just the transposition: the sequencer pulls every played
+# note into the MAJ (or MIN) scale of KEY NOTE by it. The earlier patch here (3..35 take the MAJ arm) made
+# notes recorded in Dorian, pentatonic minor etc. replay in major. Stock's 0 for 3..35 plays them as stored
+# (they are already in the scale: the live lock and the random track put them there), transposes them
+# chromatically, and keeps MAJ and MIN exactly as stock.
 
 # ------------------------------------------- 0007 / 0010: CHD's chord on COL (2026-10-26)
 # In the shelved inputs build's caves (cave8, cave9, cave11; freed 2026-10-26).
@@ -1067,3 +1057,27 @@ addr   = 0x400e07bc
 size   = 6
 expect = "20532e280008"
 entry  = "menu_gate"
+
+# ------------------------------------------------------------ 0013 poly legato (xynta, 2026-11-22)
+# In cave7 (dead code, guarded by its pool's sha256; free in the release builds).
+[[cave]]
+owner = "0013-poly-legato"
+addr  = 0x40164cd4
+size  = 0xcc
+note  = "legato_pick (voice pick, poly) and legato_glide (per-voice flags)."
+
+# The voice pick's mode read: movel 0x80003d2c,%d0 (6 B, one instruction, not a branch target).
+[[detour]]
+owner  = "0013-poly-legato"
+addr   = 0x400ff346
+size   = 6
+expect = "203980003d2c"
+entry  = "legato_pick"
+
+# The poly voice's flags: andil #-524305,%d4 (6 B, one instruction, not a branch target).
+[[detour]]
+owner  = "0013-poly-legato"
+addr   = 0x400fc578
+size   = 6
+expect = "0284fff7ffef"
+entry  = "legato_glide"

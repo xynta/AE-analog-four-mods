@@ -722,3 +722,34 @@ evidence = "(x?, glyph, y + 11, arg, 0): draws the checkbox; the BOOST draw call
 addr = 0x4016f9f8
 status = "mapped"
 evidence = "The vtable of the change notice {vt, -1, 1, 1} a sound setting's setter passes to the sound's vtable +16 (0x400afb34..0x400afb5e)."
+
+# ================================================================== poly voice allocation (0013, xynta 2026-11-22)
+[data.poly_mode]
+addr = 0x80003d2c
+status = "verified"
+evidence = "The voice allocator's mode, read by 0x400ff346 (voice pick) and 0x400fc526/0x400fc570 (per-voice flags): 3 = all voices to one track (unison: the flags keep their slide bit); 0, 1, 2 the three poly pick rules (0x400ff34c..0x400ff362)."
+
+[data.track_events]
+addr = 0x425d2fe4
+status = "verified"
+evidence = "Per track t (0..5) a 76-byte record of this block's event: +4 note count (0x400fc138/0x400fc144, from the event's +20), +20 the event flags (0x400fc12e movel %d0,%a3@(20)), the envelope retrigger bits 0x1c0 included. Walked by the track loop 0x400fbfae..0x400fc1f8 (a3 += 76)."
+
+[data.poly_voice_table]
+addr = 0x415c0ab4
+status = "verified"
+evidence = "Per voice v (0..3) 16 bytes: +0 age (incremented for every voice at each poly note-on, 0x400ff314..0x400ff342; cleared when the voice is booked), +4 gate, +8 note, +12 track (written 0x400ff2f4..0x400ff304, 0x400ff3e4..0x400ff3fe, after 0x400ff450). The voice holding track t's newest note = the voice with track t and the smallest age."
+
+[data.alloc_mode_resume]
+addr = 0x400ff34c
+status = "verified"
+evidence = "Voice pick 0x400ff284 after `moveq #1,%d1; movel 0x80003d2c,%d0` (0x400ff344/0x400ff346): `cmpl %d0,%d1` dispatches on the mode. Live: d2 track, a2 note, d3 the voices granted to the track, d5 slot, d6, a3 = 0x415c0ab4, a4 the output flag; d4, d7, a0, a1 are set by every mode path before use."
+
+[data.alloc_reassign]
+addr = 0x400ff450
+status = "verified"
+evidence = "The voice pick's booking tail for voice d4 (reached from the mode-2 search at 0x400ff426 and 0x400ff442): frees d4's old note (jsr 0x400ff200), books (track d2, note a2, slot d5) on voice d4, returns 1 << d4."
+
+[data.voice_flags_resume]
+addr = 0x400fc57e
+status = "verified"
+evidence = "After `andil #-524305,%d4` (0x400fc578: a poly voice loses the slide bit 4 and bit 19): `lea 0x425d31f4,%a0; movel %d4,%a0@(0,%d2:l:4)` stores the voice's flags. d0 is free (reloaded at 0x400fc58e)."

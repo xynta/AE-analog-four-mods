@@ -1,0 +1,33 @@
+[mod]
+id      = "0013-poly-legato"
+title   = "Poly legato: a legato note in a poly kit stays on the voice that holds its track's note, and glides"
+
+# xynta, 2026-11-22. Built and emulator-checked; not run on an instrument yet.
+enabled = false
+
+# re-only | built | hardware-verified | retracted
+status  = "built"
+
+summary = """
+Stock 1.56 makes a slide legato by clearing the note's envelope retrigger bits (trig_fire,
+0x4007839e). In a poly kit the voice pick (0x400ff284) ignores those bits and books the note on
+another voice, which then never opens: the note is silent (stock's own slide-to with an
+overlapping note, and every 0002 303 slide). This mod sends such a note (one note, all three
+envelope bits clear, a poly track, not unison) to the voice that holds the track's newest note,
+through stock's own booking tail (as the REASSIGN rule does), and keeps the slide bit on that
+voice so it glides there (stock clears it for every poly voice). Mono tracks, chords, notes that
+retrigger and unison are untouched.
+"""
+
+[sources]
+stub = "stub.s"
+
+[requires]
+symbols = [
+  "poly_mode",
+  "track_events",
+  "poly_voice_table",
+  "alloc_mode_resume",
+  "alloc_reassign",
+  "voice_flags_resume",
+]
