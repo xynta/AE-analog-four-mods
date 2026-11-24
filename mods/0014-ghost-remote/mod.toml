@@ -1,0 +1,40 @@
+[mod]
+id      = "0014-ghost-remote"
+title   = "GHOST REMOTE: a SysEx command channel to read the screen and memory and press panel keys from a computer"
+
+# xynta, 2026-11-22. Built and emulator-checked; not run on an instrument yet.
+# Standalone (make remote) or beside every other mod (make hard-remote).
+enabled = false
+
+# re-only | built | hardware-verified | retracted
+status  = "built"
+
+summary = """
+SysEx command 0x5F under the Analog Four's own header (F0 00 20 3C 06 00 5F <sub> <seq> <args> F7), a dump
+type stock drops (its receiver takes 0x52..0x5D). PING (which mods the image carries, counters), STATUS (transport, pattern, kit,
+the panel's key groups, LEDs), SCREEN (the LCD frame and LEDs), READ (up to 256 bytes of RAM, the CS1
+memory or the NOR flash, nothing else), KEY (a panel key down or up, held keys kept), ENC (an encoder turn)
+and RELEASE (let up every key it put down). Keys and turns go in as the panel's own bytes, through the
+parser the panel UART feeds, so the OS cannot tell them from the panel: the YES of an OS upgrade included.
+The reply goes back on the port the request came in on (USB or DIN), 8/7-packed. There is no memory
+write. The protocol is the Octatrack's and the Rytm MKI's GHOST REMOTE: the same command byte, sub numbers and
+status codes.
+"""
+
+[sources]
+stub = "stub.s"
+
+[requires]
+symbols = [
+  "sysex_send",
+  "sysex_port_of",
+  "panel_parse_byte",
+  "panel_ready",
+  "key_masks",
+  "fb_glass",
+  "led_state",
+  "led_blink",
+  "seq_running",
+  "active_pattern",
+  "active_kit_nr",
+]

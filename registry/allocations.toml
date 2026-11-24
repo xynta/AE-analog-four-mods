@@ -387,6 +387,262 @@ or call target, no 32-bit word in the image, no switch-table case lands in
 0x401377c8..0x40137836; never executed in the seven emulator coverage sessions on stock 1.56.
 """
 
+
+# ---------------------------------------------------------------- 0014 pools (xynta, 2026-11-22)
+# Fourteen more dead-code runs for GHOST REMOTE, which needs ~1.2 KB beside every other mod.
+
+[[pool]]
+name   = "cave29"
+start  = 0x4016525e
+end    = 0x401652c0          # exclusive; 98 B
+stock  = "code"
+expect_sha256 = "baa3e3ce42c147adf3ea6e7f87201fa542c47776310b240d79344452d5bae03c"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x4016525e..0x401652c0, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave30"
+start  = 0x4007ed14
+end    = 0x4007ed7c          # exclusive; 104 B
+stock  = "code"
+expect_sha256 = "9c3e83b0d94982577a191811702b1bc66139a46d43ba63e9205e45d8b5a54984"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x4007ed14..0x4007ed7c, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave31"
+start  = 0x4016518e
+end    = 0x401651f0          # exclusive; 98 B
+stock  = "code"
+expect_sha256 = "c0518667f3bbb0fa57e3be96ea646921eb3b7c72d3f5ff82c398822c767fde0d"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x4016518e..0x401651f0, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave32"
+start  = 0x400aa21a
+end    = 0x400aa280          # exclusive; 102 B
+stock  = "code"
+expect_sha256 = "94e04454dff521dd35d08e7dd17f3d78df8e658a338c0ebd672e497006aadf41"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x400aa21a..0x400aa280, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave33"
+start  = 0x40126a96
+end    = 0x40126afe          # exclusive; 104 B
+stock  = "code"
+expect_sha256 = "bae42512a905bc453d45014d3a1bf4c5f34a515aa26e9da7d16d104ce6d7e89b"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x40126a96..0x40126afe, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave34"
+start  = 0x400a0754
+end    = 0x400a07bc          # exclusive; 104 B
+stock  = "code"
+expect_sha256 = "a65491e28856378523b10f9e39a2dd7a363c7b6b72ad71314ec1fd1f870f7c95"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x400a0754..0x400a07bc, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave35"
+start  = 0x4016577c
+end    = 0x401657d6          # exclusive; 90 B
+stock  = "code"
+expect_sha256 = "0eea0938c209c9b03ba0b2a8da47e0477d1adf05d067d2c497cf3a948390d9f7"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x4016577c..0x401657d6, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave36"
+start  = 0x40098ef4
+end    = 0x40098f5c          # exclusive; 104 B
+stock  = "code"
+expect_sha256 = "ebf8e8081f5d23886354747aae846041cb3cd3f4b7625a6d52eafb46a6529977"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x40098ef4..0x40098f5c, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave37"
+start  = 0x400649e0
+end    = 0x40064a46          # exclusive; 102 B
+stock  = "code"
+expect_sha256 = "8b3fa0ad4703c8123f62e618a9bdb33ee2cb6b36e03caf7b5acbfb1b87a5e1d7"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x400649e0..0x40064a46, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave38"
+start  = 0x40165eea
+end    = 0x40165f46          # exclusive; 92 B
+stock  = "code"
+expect_sha256 = "6a6380ff88e1910ec3106f5973e3609fa5b428ad9bd9014a81f930963c06e0ee"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x40165eea..0x40165f46, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave39"
+start  = 0x4007efc6
+end    = 0x4007f022          # exclusive; 92 B
+stock  = "code"
+expect_sha256 = "c5c78010b89f009d57a6d87863a1dbf73e150d7e9ad81bc61f081db1a606afc9"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x4007efc6..0x4007f022, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave40"
+start  = 0x400224a2
+end    = 0x400224fc          # exclusive; 90 B
+stock  = "code"
+expect_sha256 = "5799ad353136ef4ab7cc9236594d004d8235e5446d8865d1b0433f6cc2ec442a"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x400224a2..0x400224fc, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave41"
+start  = 0x4001d6be
+end    = 0x4001d71c          # exclusive; 94 B
+stock  = "code"
+expect_sha256 = "5f16f3a6568a3a779a0b66fe0681ba8adf6ca9f8e256fbf0df9d0f090c192109"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x4001d6be..0x4001d71c, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
+[[pool]]
+name   = "cave42"
+start  = 0x4009f3f8
+end    = 0x4009f460          # exclusive; 104 B
+stock  = "code"
+expect_sha256 = "3cd39a0f568fb08c3a4e71a9d16fc798b9677bc1a605db13275fe8675bbce4d2"
+status = "probably-verified"
+note   = """
+OS 1.56 dead code (a dead-code scan, xynta 2026-11-22 for 0014): unreferenced wrapper routines.
+Evidence: no branch or call target, no 32-bit word anywhere in the image, no case of the 63 switch
+tables lands in 0x4009f3f8..0x4009f460, and no computed jump in the routine before it (deadscan's J flag);
+never executed in six interpreter sessions on stock 1.56 (137,173 distinct PCs: cold boot; a panel tour of every page key, FUNC
+menus, keyboard menus, tracks, encoders, PLAY/RECORD/STOP; MIDI notes, CCs, PC, clock, every SysEx request
+on DIN and USB; 25 s of playback with a pattern change; a whole OS upgrade over the transfer protocol, YES,
+the NOR write, and the reboot from it).
+Not yet run on hardware: if one were called after all, mod code would run instead.
+"""
+
 # --------------------------------------------------------------------- claims
 
 [[pool]]
@@ -1081,3 +1337,121 @@ addr   = 0x400fc578
 size   = 6
 expect = "0284fff7ffef"
 entry  = "legato_glide"
+
+# ------------------------------------------------------------ 0014 GHOST REMOTE (xynta, 2026-11-22)
+# A SysEx command channel: slot 0x5F of the product-6 SysEx table (0x401ec138), a type stock drops. The code is split
+# over cave10 and cave29..cave42; its state is free DDR at 0x46808000..0x4680882b (after 0011's SNAP, before
+# 0007's 0x4680c000).
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr1"
+addr    = 0x40090d7e
+size    = 0xca
+note    = "0014 GHOST REMOTE, .gr1 (cave10): the entry (claim, framing) and ghr_copy."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr2"
+addr    = 0x4016525e
+size    = 0x62
+note    = "0014 GHOST REMOTE, .gr2 (cave29): the request dispatcher."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr3"
+addr    = 0x4007ed14
+size    = 0x68
+note    = "0014 GHOST REMOTE, .gr3 (cave30): 8/7 packing and the panel injection."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr4"
+addr    = 0x4016518e
+size    = 0x62
+note    = "0014 GHOST REMOTE, .gr4 (cave31): PING."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr5"
+addr    = 0x400aa21a
+size    = 0x66
+note    = "0014 GHOST REMOTE, .gr5 (cave32): the sub table and READ ranges."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr6"
+addr    = 0x40126a96
+size    = 0x68
+note    = "0014 GHOST REMOTE, .gr6 (cave33): the mods table and the tag."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr7"
+addr    = 0x400a0754
+size    = 0x68
+note    = "0014 GHOST REMOTE, .gr7 (cave34): STATUS."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr8"
+addr    = 0x4016577c
+size    = 0x5a
+note    = "0014 GHOST REMOTE, .gr8 (cave35): KEY (checks)."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr9"
+addr    = 0x40098ef4
+size    = 0x68
+note    = "0014 GHOST REMOTE, .gr9 (cave36): KEY (the injection)."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr10"
+addr    = 0x400649e0
+size    = 0x66
+note    = "0014 GHOST REMOTE, .gr10 (cave37): ENC."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr11"
+addr    = 0x40165eea
+size    = 0x5c
+note    = "0014 GHOST REMOTE, .gr11 (cave38): SCREEN."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr12"
+addr    = 0x4007efc6
+size    = 0x5c
+note    = "0014 GHOST REMOTE, .gr12 (cave39): READ (arguments)."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr13"
+addr    = 0x400224a2
+size    = 0x5a
+note    = "0014 GHOST REMOTE, .gr13 (cave40): READ (ranges, copy)."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr14"
+addr    = 0x4001d6be
+size    = 0x5e
+note    = "0014 GHOST REMOTE, .gr14 (cave41): the reply and its send."
+
+[[cave]]
+owner   = "0014-ghost-remote"
+section = ".gr15"
+addr    = 0x4009f3f8
+size    = 0x68
+note    = "0014 GHOST REMOTE, .gr15 (cave42): RELEASE."
+
+# The product-6 SysEx table's slot 0x5F (0x401ec138 + 4 * 0x5F), the Octatrack's and the Rytm MKI's remote command:
+# stock 0x40063826, the dump receiver, whose type switch (0x40067390) takes 0x52..0x5D and drops 0x5E / 0x5F.
+[[patch]]
+owner       = "0014-ghost-remote"
+addr        = 0x401ec2b4
+size        = 4
+expect      = "40063826"
+from_symbol = "ghr_sysex"

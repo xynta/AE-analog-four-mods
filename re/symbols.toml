@@ -753,3 +753,62 @@ evidence = "The voice pick's booking tail for voice d4 (reached from the mode-2 
 addr = 0x400fc57e
 status = "verified"
 evidence = "After `andil #-524305,%d4` (0x400fc578: a poly voice loses the slide bit 4 and bit 19): `lea 0x425d31f4,%a0; movel %d4,%a0@(0,%d2:l:4)` stores the voice's flags. d0 is free (reloaded at 0x400fc58e)."
+
+# ================================================================== GHOST REMOTE (0014, xynta 2026-11-22)
+[fn.sysex_send]
+addr = 0x40066c68
+status = "verified"
+sig = "bool(const u8 *buf, int len, const u8 *abort, int port)"
+evidence = "Sends a SysEx buffer in chunks of 144 B through 0x4006683a(len, buf, port): port 2 USB (0x400034bc under the USB lock 0x400033f0/0x40003400), 3 DIN (0x400028c6), 4 both, 1 resolved by 0x400667fe. Needs 0x415cba28 set; a nonzero *abort stops it; returns 1 when all was sent. Called by the dump sender 0x40065c2a with the request's port. One of analog-emu's hooked sites (kept stock)."
+
+[fn.panel_parse_byte]
+addr = 0x40062dfc
+status = "verified"
+sig = "void(int byte)"
+evidence = "The panel UART's per-byte parser: the panel RX interrupt 0x400021ce drains the eDMA ring (0x404414d4, index 0x404414f4) and calls it through 0x40441504 (installed by 0x400026f2 at 156250 baud, 0x400ffc54). A header byte (panel_ready set) stores channel and type; `2g mask` -> key group handler 0x40062b1c(g, mask), `3c delta` -> encoder 0x40062d8a(c, (s8)delta). Posts events with queue_send (0x40001eb6), which defers the task switch to a forced interrupt, so it may be called from task level with every interrupt masked [measured: GHOST REMOTE in analog-emu]."
+
+[data.panel_ready]
+addr = 0x401ebac4
+status = "verified"
+evidence = "Byte: 1 while panel_parse_byte waits for a header byte, 0 between a header and its data (cleared at 0x40062e1a, set at 0x40063092)."
+
+[data.key_masks]
+addr = 0x408c393c
+status = "verified"
+evidence = "11 bytes: each panel key group's mask as the parser last had it (read 0x40062b50, written 0x40062d18). A `2g mask` message is the whole group: the parser makes press and release events from the bits that changed."
+
+[data.fb_glass]
+addr = 0x401ed958
+status = "verified"
+evidence = "Pointer to the LCD frame on glass (512 B: 4 pages x 128 columns, byte = page + 4 * column, page 0 the bottom band, 122 columns visible). The flush 0x4007333a sends, from the frame at 0x401ed954 (the one the UI draws into), the tiles that differ from this one, then swaps the two pointers (0x400733b0..0x400733c6), so after every flush this one holds what the panel shows [measured: equal to analog-emu's panel picture across a menu change; the other pointer then still held the frame before]."
+
+[data.led_state]
+addr = 0x409123f0
+status = "verified"
+evidence = "14 bytes, one per LED group (LED = 8 * group + bit); the flush 0x400734e8 sends state XOR blink (0x409125ce) where it differs from what was sent (0x409125c0)."
+
+[data.led_blink]
+addr = 0x409125ce
+status = "verified"
+evidence = "14 bytes: the LED groups' blink phase masks (XORed onto led_state by the flush 0x400734e8)."
+
+[data.seq_running]
+addr = 0x80006000
+status = "verified"
+evidence = "Long: 0 stopped, 1 playing (memory diff stopped / playing in analog-emu; written by the sequencer 0x400769a2, 0x4007758a, cleared 0x4007780a, 0x40078fc2, 0x40079b22)."
+
+[data.active_pattern]
+addr = 0x8000600c
+status = "verified"
+evidence = "Signed byte: the active pattern (A01 = 0; read by trig_fire and key_offset as the pattern index * 94170). Memory diff A01/A02/A03/B01 in analog-emu: 0, 1, 2, 16."
+
+[data.active_kit_nr]
+addr = 0x425d23b0
+status = "verified"
+evidence = "Long: the active kit's number; the audio code reloads the kit's sounds (0x414ef2ba + kit * 2400) when it differs from its copy 0x80005528 (0x400fcb60). Equals the work kit dump's number in analog-emu."
+
+[fn.sysex_port_of]
+addr = 0x40065f30
+status = "verified"
+sig = "int(int source)"
+evidence = "A SysEx request's source mask (the dispatcher 0x400644ea's third argument: bits 1-2 USB, bits 3-4 DIN) -> sysex_send's port: 2 USB, 3 DIN, 4 both, 1 none. The dump request handler 0x40066efc calls it on its source (jsr at 0x40066f12) before it queues the reply."

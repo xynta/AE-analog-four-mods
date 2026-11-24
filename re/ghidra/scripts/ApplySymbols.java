@@ -49,7 +49,10 @@ public class ApplySymbols extends GhidraScript {
         name(0x40060ef4L, "handle_note_event", true);
         name(0x40060efcL, "handle_note_event_body", false);
         name(0x40062872L, "is_key_held", true);
+        name(0x40062dfcL, "panel_parse_byte", true);
         name(0x400635a0L, "op_new", true);
+        name(0x40065f30L, "sysex_port_of", true);
+        name(0x40066c68L, "sysex_send", true);
         name(0x40075ab8L, "memcpy", true);
         name(0x40077a12L, "key_offset", true);
         name(0x40077ce6L, "trig_fire", true);
@@ -134,14 +137,22 @@ public class ApplySymbols extends GhidraScript {
         name(0x4016fa08L, "fx_change_info_vt", false);
         name(0x40181d80L, "scale_table", false);
         name(0x4018e2f0L, "key_scale_names", false);
+        name(0x401ebac4L, "panel_ready", false);
+        name(0x401ed958L, "fb_glass", false);
         name(0x401ede78L, "scale_long_names", false);
         name(0x401edf08L, "scale_short_names", false);
+        name(0x408c393cL, "key_masks", false);
+        name(0x409123f0L, "led_state", false);
+        name(0x409125ceL, "led_blink", false);
         name(0x415c00b0L, "block_counter", false);
         name(0x415c0ab4L, "poly_voice_table", false);
         name(0x415c9cb8L, "icon_set", false);
         name(0x415cba28L, "project_ptr", false);
+        name(0x425d23b0L, "active_kit_nr", false);
         name(0x425d2fe4L, "track_events", false);
         name(0x80003d2cL, "poly_mode", false);
-        println("applied 125 symbols");
+        name(0x80006000L, "seq_running", false);
+        name(0x8000600cL, "active_pattern", false);
+        println("applied 136 symbols");
     }
 }

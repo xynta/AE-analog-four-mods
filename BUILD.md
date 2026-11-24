@@ -78,6 +78,7 @@ or stops with an error, don't flash that file.
 | `0011-rand-track` | - | random track (track key + YES, LEFT undoes); uses 0001's KEY SCALE if present |
 | `0012-res-limit` | 0010 | RESONANCE LIMIT in SOUND SETUP (it shares 0010's word in the sound) |
 | `0013-poly-legato` | - | a legato note in a poly kit stays on its track's voice and glides (fixes 0002 and stock slides in poly) |
+| `0014-ghost-remote` | - | GHOST REMOTE: SysEx 0x5F under the A4's header reads the screen, status and memory and presses panel keys (`make remote`, `make hard-remote`; host side: any SysEx client, the protocol in mods/0014-ghost-remote/mod.toml) |
 
 Rules of thumb:
 

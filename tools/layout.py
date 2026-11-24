@@ -8,7 +8,9 @@ POOL_OF = {"cave": ("cave", "cave2", "cave3", "cave4", "cave5", "cave6",
                  "cave7", "cave8", "cave9", "cave10", "cave11",
                  "cave12", "cave13", "cave14", "cave15", "cave16", "cave17",
                  "cave18", "cave19", "cave20",
-                 "cave21", "cave22", "cave23", "cave24", "cave25", "cave26", "cave27", "cave28"),
+                 "cave21", "cave22", "cave23", "cave24", "cave25", "cave26", "cave27", "cave28",
+                 "cave29", "cave30", "cave31", "cave32", "cave33", "cave34", "cave35", "cave36",
+                 "cave37", "cave38", "cave39", "cave40", "cave41", "cave42"),
            "ram": ("patch_ram",)}
 
 # A pool at status "candidate" has not been proven on hardware, so the only thing

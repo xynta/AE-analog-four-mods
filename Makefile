@@ -4,7 +4,7 @@
 # binutils-m68k-linux-gnu).
 PY := python3
 
-.PHONY: all setup symbols layout build verify full hard custom scale slide control disasm cavescan clean
+.PHONY: all setup symbols layout build verify full hard remote hard-remote custom scale slide control disasm cavescan clean
 
 all: verify
 
@@ -43,6 +43,16 @@ FULL := 0001-scale-lock 0002-slide-303 0006-fx-slot 0007-digital-path 0008-pages
 full: symbols layout
 	$(PY) tools/build.py --mods $(FULL) --tag full
 	$(PY) tools/verify.py --tag full
+
+# GHOST REMOTE alone on stock -> build/A4_OS1.56_remote.syx, and beside everything in `hard`
+# -> build/A4_OS1.56_hard-remote.syx (xynta).
+remote: symbols layout
+	$(PY) tools/build.py --mods 0014-ghost-remote --tag remote
+	$(PY) tools/verify.py --tag remote
+
+hard-remote: symbols layout
+	$(PY) tools/build.py --mods $(FULL) 0014-ghost-remote --param 0007-digital-path:chr=0 --tag hard-remote
+	$(PY) tools/verify.py --tag hard-remote
 
 # The same with one drive character: HARD only, no CHR knob on the DIST page, a
 # lighter digital path -> build/A4_OS1.56_hard.syx
